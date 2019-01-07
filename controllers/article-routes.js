@@ -9,6 +9,8 @@ var router = express.Router();
 router.get("/scrape", function(req, res) {
   request("http://www.npr.org/sections/news/archive", function(error, response, html) {
     var $ = cheerio.load(html);
+
+    var result = {};
  
     $("div.archivelist > article").each(function(i, element) {
 
